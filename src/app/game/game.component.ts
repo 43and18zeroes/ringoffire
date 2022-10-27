@@ -26,10 +26,13 @@ export class GameComponent implements OnInit {
     if (!this.pickCardAnimation) {
       this.currentCard = this.game.stack.pop(); // pop returns last element of an array and removes it
       this.pickCardAnimation = true;
+      console.log('New card:', this.currentCard);
+      console.log('game', this.game);
 
       setTimeout(() => {
+        this.game.playedCards.push(this.currentCard);
         this.pickCardAnimation = false;
-      }, 1500);
+      }, 1000);
     }
   }
 
