@@ -20,7 +20,7 @@
     </div>
 </div>
 
-<app-game-info class="pin-bottom"></app-game-info>
+<app-game-info [card]="currentCard" class="pin-bottom"></app-game-info>
 
 <button mat-fab color="primary" aria-label="Example icon button with a delete icon" class="btn-add"
     (click)="openDialog()">
