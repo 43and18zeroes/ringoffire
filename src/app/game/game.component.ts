@@ -26,7 +26,7 @@ export class GameComponent implements OnInit {
 
   takeCard() {
     if (!this.pickCardAnimation) {
-      this.currentCard = this.game.stack.pop(); // pop returns last element of an array and removes it
+      this.currentCard = this.game.stack.pop();
       this.pickCardAnimation = true;
       console.log('New card:', this.currentCard);
       console.log('game', this.game);
@@ -45,7 +45,9 @@ export class GameComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
 
     dialogRef.afterClosed().subscribe((name: string) => {
-      this.game.players.push(name);
+      if(name && name.length > 0) {
+        this.game.players.push(name);
+      }
     });
   }
 
