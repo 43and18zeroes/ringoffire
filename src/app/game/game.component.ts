@@ -29,7 +29,9 @@ export class GameComponent implements OnInit {
 
   newGame() {
     this.game = new Game();
-    console.log(this.game);
+    this.firestore
+      .collection('games')
+      .add({'Hallo': 'Welt'});
   }
 
   takeCard() {
