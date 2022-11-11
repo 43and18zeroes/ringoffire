@@ -7,7 +7,11 @@
         [playerActive]="i == game.currentPlayer" [image]="game.player_images[i]" [name]="player"></app-player-mobile>
 </div>
 
-<div class="field">
+<div *ngIf="gameOver" class="gameOver">
+    <img src="./assets/img/game-over.jpg">
+</div>
+
+<div *ngIf="!gameOver" class="field">
 
     <div class="card-stack">
         <!-- Card stack -->
