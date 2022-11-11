@@ -24,20 +24,20 @@ export class GameComponent implements OnInit {
       this.gameId = params['id'];
 
       this
-      .firestore
-      .collection('games')
-      .doc(this.gameId)
-      .valueChanges()
-      .subscribe((game: any) => {
-        console.log('Game update', game);
-        this.game.players = game.players;
-        this.game.player_images = game.player_images;
-        this.game.stack = game.stack;
-        this.game.playedCards = game.playedCards;
-        this.game.currentPlayer = game.currentPlayer;
-        this.game.pickCardAnimation = game.pickCardAnimation;
-        this.game.currentCard = game.currentCard;
-      });
+        .firestore
+        .collection('games')
+        .doc(this.gameId)
+        .valueChanges()
+        .subscribe((game: any) => {
+          console.log('Game update', game);
+          this.game.players = game.players;
+          this.game.player_images = game.player_images;
+          this.game.stack = game.stack;
+          this.game.playedCards = game.playedCards;
+          this.game.currentPlayer = game.currentPlayer;
+          this.game.pickCardAnimation = game.pickCardAnimation;
+          this.game.currentCard = game.currentCard;
+        });
     });
 
   }
@@ -69,11 +69,17 @@ export class GameComponent implements OnInit {
     console.log('Edit player', playerId);
 
     const dialogRef = this.dialog.open(EditPlayerComponent);
-
     dialogRef.afterClosed().subscribe((change: string) => {
-    console.log('Received change', change);
-    this.game.player_images[playerId] = change;
-    this.saveGame();
+
+      if (change) {
+        if (change == 'DELETE') {
+          this.game.players.splice(playerId, 1);
+          this.game.player_images.splice(playerId, 1);
+        } else {
+          this.game.player_images[playerId] = change;
+        }
+      }
+
     });
   }
 
@@ -81,7 +87,7 @@ export class GameComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogAddPlayerComponent);
 
     dialogRef.afterClosed().subscribe((name: string) => {
-      if(name && name.length > 0) {
+      if (name && name.length > 0) {
         this.game.players.push(name);
         this.game.player_images.push('man.png');
         this.saveGame();
