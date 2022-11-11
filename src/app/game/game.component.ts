@@ -31,6 +31,7 @@ export class GameComponent implements OnInit {
       .subscribe((game: any) => {
         console.log('Game update', game);
         this.game.players = game.players;
+        this.game.player_images = game.player_images;
         this.game.stack = game.stack;
         this.game.playedCards = game.playedCards;
         this.game.currentPlayer = game.currentPlayer;
@@ -71,6 +72,8 @@ export class GameComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((change: string) => {
     console.log('Received change', change);
+    this.game.player_images[playerId] = change;
+    this.saveGame();
     });
   }
 
@@ -80,6 +83,7 @@ export class GameComponent implements OnInit {
     dialogRef.afterClosed().subscribe((name: string) => {
       if(name && name.length > 0) {
         this.game.players.push(name);
+        this.game.player_images.push('man.png');
         this.saveGame();
       }
     });
