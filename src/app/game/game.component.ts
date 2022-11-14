@@ -21,7 +21,6 @@ export class GameComponent implements OnInit {
   ngOnInit(): void {
     this.newGame();
     this.route.params.subscribe((params) => {
-      console.log(params['id']);
       this.gameId = params['id'];
 
       this
@@ -30,7 +29,6 @@ export class GameComponent implements OnInit {
         .doc(this.gameId)
         .valueChanges()
         .subscribe((game: any) => {
-          console.log('Game update', game);
           this.game.players = game.players;
           this.game.player_images = game.player_images;
           this.game.stack = game.stack;
@@ -57,8 +55,6 @@ export class GameComponent implements OnInit {
     else if (!this.game.pickCardAnimation) {
       this.game.currentCard = this.game.stack.pop();
       this.game.pickCardAnimation = true;
-      console.log('New card:', this.game.currentCard);
-      console.log('game', this.game);
       this.game.currentPlayer++;
       this.game.currentPlayer = this.game.currentPlayer % this.game.players.length;
       this.saveGame();
@@ -71,8 +67,6 @@ export class GameComponent implements OnInit {
   }
 
   editPlayer(playerId: number) {
-    console.log('Edit player', playerId);
-
     const dialogRef = this.dialog.open(EditPlayerComponent);
     dialogRef.afterClosed().subscribe((change: string) => {
 

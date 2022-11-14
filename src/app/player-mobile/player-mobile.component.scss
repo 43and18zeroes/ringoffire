@@ -5,12 +5,20 @@
     flex-direction: column;
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
+    z-index: 10;
 
     span {
         font-size: 14px;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        word-break: break-word;
+        padding-left: 5px;
+        padding-right: 5px;
+        z-index: 10;
     }
 
     background-color: rgba(50, 50, 50, 0.8);
+    
 
     img {
         margin-top: 16px;
@@ -18,6 +26,7 @@
         height: 50px;
         object-fit: cover;
         border-radius: 100%;
+        z-index: 10;
     }
 }
 
