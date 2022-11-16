@@ -25,11 +25,12 @@
     justify-content: center;
 
     img{
-        width: 40vw;
+        width: 384px;
         height: auto;
 
         @media (max-width: 960px) {
-            width: 400px;
+            width: 80%;
+            max-width: 384px;
         }
 
         &:hover {

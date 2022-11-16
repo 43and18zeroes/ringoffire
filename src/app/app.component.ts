@@ -11,7 +11,7 @@ export class AppComponent {
   ngOnInit(): void {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
       && screen.availHeight < screen.availWidth) {
-      
+      console.log("landscape active");
     }
   }
 
