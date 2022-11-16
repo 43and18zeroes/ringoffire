@@ -1,0 +1,29 @@
+@media only screen and (orientation: portrait) {
+    #rotateDeviceContainer {
+        display: none;
+    }
+}
+
+@media (min-width: 720px) {
+    #rotateDeviceContainer {
+        display: none;
+    }
+}
+
+@media only screen and (orientation: landscape) and (max-width: 720px) {
+    #rotateDeviceContainer {
+        width: 100vw;
+        height: 100vh;
+        background-color: #D6C8B2;
+        z-index: 9999999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        span {
+            font-size: 80px;
+            line-height: 1.2;
+            text-align: center;
+        }
+    }
+}

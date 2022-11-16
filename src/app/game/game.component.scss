@@ -118,3 +118,19 @@ app-player, app-player-mobile {
     height: 0px;
     z-index: -99999;
 }
+
+@media only screen and (orientation: landscape) and (max-width: 720px) {
+    .scroll-container {
+        display: none !important;
+    }
+
+    .played-card {
+        display: none !important;
+    }
+}
+
+@media only screen and (orientation: landscape) and (max-width: 720px) {
+    .btn-add {
+        display: none !important;
+    }
+}

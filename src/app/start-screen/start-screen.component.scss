@@ -24,7 +24,7 @@
     display: flex;
     justify-content: center;
 
-    img{
+    img {
         width: 384px;
         height: auto;
 
@@ -37,5 +37,11 @@
             filter: brightness(1.25);
             cursor: pointer;
         }
+    }
+}
+
+@media only screen and (orientation: landscape) and (max-width: 720px) {
+    #startLabelBox {
+        display: none;
     }
 }
