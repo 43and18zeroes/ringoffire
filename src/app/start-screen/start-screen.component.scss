@@ -6,13 +6,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url('../../assets/img/ring2.jpg');
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover; 
 
     @media (max-width: 960px) {
         overflow: hidden;
-    }
-
-    img {
-        height: 100vh;
     }
 }
 
